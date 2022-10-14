@@ -34,7 +34,7 @@ resource "azurerm_subnet" "onpremise-dns-inbound-subnet" {
     resource_group_name     = azurerm_resource_group.onpremise-rg.name
     virtual_network_name    = azurerm_virtual_network.onpremise-vnet.name
     address_prefixes        = ["10.233.2.0/28"]
-    /*delegation {
+    delegation {
       name = "Microsoft.Network.dnsResolvers"
       service_delegation {
         actions = [
@@ -42,7 +42,7 @@ resource "azurerm_subnet" "onpremise-dns-inbound-subnet" {
         ]
         name = "Microsoft.Network/dnsResolvers"
       }
-    }*/
+    }
 }
 
 resource "azurerm_subnet" "onpremise-dns-outbound-subnet" {
@@ -50,7 +50,7 @@ resource "azurerm_subnet" "onpremise-dns-outbound-subnet" {
     resource_group_name     = azurerm_resource_group.onpremise-rg.name
     virtual_network_name    = azurerm_virtual_network.onpremise-vnet.name
     address_prefixes        = ["10.233.2.16/28"]
-    /*delegation {
+    delegation {
       name = "Microsoft.Network.dnsResolvers"
       service_delegation {
         actions = [
@@ -58,7 +58,7 @@ resource "azurerm_subnet" "onpremise-dns-outbound-subnet" {
         ]
         name = "Microsoft.Network/dnsResolvers"
       }
-    }*/
+    }
 }
 
 #########################################################

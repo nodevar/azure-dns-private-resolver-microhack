@@ -41,7 +41,7 @@ resource "azurerm_virtual_network_gateway" "hub-vpngw" {
     private_ip_address_allocation   = "Dynamic"
     subnet_id                       = azurerm_subnet.hub-gateway-subnet.id
   }
-  depens_on = [
+  depends_on = [
     azurerm_public_ip.hub-vpngw-ip
   ]
   tags = {

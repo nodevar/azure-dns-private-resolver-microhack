@@ -4,7 +4,7 @@
 
 variable "onpremise_location" {
     type = string
-    default = "westcentralus"
+    default = "northeurope"
     description = "On-premise resources location"
 }
 
@@ -16,7 +16,7 @@ variable "onpremise_bgp_asn" {
 
 variable "azure_location" {
     type = string
-    default = "eastus2"
+    default = "westeurope"
     description = "Azure resources location"
 }
 
@@ -29,6 +29,7 @@ variable "azure_bgp_asn" {
 variable "admin_password" {
   description = "Password for all VMs deployed in this MicroHack"
   type        = string
+  default     = "@anstMori1"
 }
 
 variable "vm_size" {
@@ -72,5 +73,5 @@ variable "vm_os_version" {
 #########################################################
 
 locals {
-  shared-key = "microhack-shared-key"
+  shared-key = "9SqObgjA8XcTrAM767lvW5ggRD1MVPH4"
 }

@@ -155,7 +155,7 @@ resource "azurerm_subnet" "spoke01-default-subnet" {
     resource_group_name                            = azurerm_resource_group.spoke01-rg.name
     virtual_network_name                           = azurerm_virtual_network.spoke01-vnet.name
     address_prefixes                               = ["10.221.8.0/24"]
-    enforce_private_link_endpoint_network_policies = true
+    private_endpoint_network_policies_enabled      = true
 }
 
 #########################################################

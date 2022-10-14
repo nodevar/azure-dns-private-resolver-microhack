@@ -37,6 +37,7 @@ resource "azurerm_virtual_network_gateway" "hub-vpngw" {
   }
 
   ip_configuration {
+    name                            = "vnetGatewayIpConfig"
     public_ip_address_id            = azurerm_public_ip.hub-vpngw-ip.id
     private_ip_address_allocation   = "Dynamic"
     subnet_id                       = azurerm_subnet.hub-gateway-subnet.id

@@ -27,18 +27,23 @@ resource "azurerm_virtual_network_gateway" "hub-vpngw" {
   active_active                     = false
   enable_bgp                        = true
   sku                               = "VpnGw1"
+  generation                        = "Generation1"
 
   bgp_settings {
-      asn = var.onpremise_bgp_asn
+      asn = var.azure_bgp_asn
+      peering_addresses {
+        ip_configuration_name = "vnetGatewayIpConfig"
+      }
   }
 
   ip_configuration {
-    name                            = "vnetGatewayIpConfig"
     public_ip_address_id            = azurerm_public_ip.hub-vpngw-ip.id
     private_ip_address_allocation   = "Dynamic"
     subnet_id                       = azurerm_subnet.hub-gateway-subnet.id
   }
-
+  depens_on = [
+    azurerm_public_ip.hub-vpngw-ip
+  ]
   tags = {
     environment = "cloud"
     deployment  = "terraform"
